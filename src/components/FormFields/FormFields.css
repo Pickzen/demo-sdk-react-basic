@@ -1,0 +1,21 @@
+.form-fields {
+    list-style-type: none;
+}
+
+.form-fields label {
+    text-align: left;
+}
+
+.form-fields li {
+    margin: 15px 0;
+}
+
+.form-fields li.invalid label {
+    color: #f00;
+}
+
+.form-fields input[type="text"] {
+    width: 100%;
+    font-size: 14px;
+    height: 32px;
+}

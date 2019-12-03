@@ -1,0 +1,21 @@
+ul.list-options {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+.list-options li {
+    border: 1px solid #999;
+    padding: 15px;
+    margin: 15px 0;
+    cursor: pointer;
+}
+
+.list-options li:hover {
+    background-color: #f9f9f9;
+}
+
+.list-options li.selected {
+    background-color: #ddd;
+}
+

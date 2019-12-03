@@ -1,0 +1,8 @@
+.navigation {
+    display: inline-block;
+    margin-top: 20px;
+}
+
+.navigation button {
+    margin: 20px;
+}
