@@ -4,8 +4,7 @@ import SlideContextProvider from '../context/SlideContext'
 import Slide from '../slides/Slide'
 
 const cfg = {
-    code:'HPTkH7GAWjx',
-    server:'https://local.pickzen.com'
+    code:'HPTkH7GAWjx'
 };
 
 const App = () => (

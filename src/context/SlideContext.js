@@ -32,7 +32,7 @@ const SlideContextProvider = ({children}) => {
 
         setSlideModel(slideModel);
 
-        const canRestart = slideModel.getType()==='EndSlide';
+        const canRestart = slideModel.getType()==='End';
 
         setNav( {canBack:slideModel.canBack(), canNext:slideModel.canNext(), canRestart});
     };

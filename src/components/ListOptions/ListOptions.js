@@ -19,6 +19,7 @@ function ListOptions({options}) {
                 <li onClick={() => select(o)}
                     className={selectedOptions[i] ? 'selected' : ''}
                     key={o.getId()}>
+                    {o.hasImage()?<div className="image" style={{backgroundImage:`url(${o.getImage()})`}} />:null}
                     <CustomHTML html={o.getTitle()} />
                 </li>
             )) }
