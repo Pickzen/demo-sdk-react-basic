@@ -4,12 +4,22 @@ import CustomHTML from "../CustomHTML/CustomHTML";
 import './ListOptions.css'
 
 function ListOptions({options}) {
+    const [slideId, setSelectedId] = useState(null);
     const [selectedOptions, setSelectedOptions] = useState([]);
     const {slideModel, displayCurrentSlide} = useContext(SlideContext);
 
+    const refreshSelectedOptions = () => {
+        setSelectedOptions( options.map( o => o.isSelected() ) );
+    };
+
+    if (slideModel.getId()!==slideId) {
+        refreshSelectedOptions();
+        setSelectedId(slideModel.getId());
+    }
+
     const select = ( o ) => {
         slideModel.selectOption(o);
-        setSelectedOptions( options.map( o => o.isSelected() ) );
+        refreshSelectedOptions();
         displayCurrentSlide();        
     };
 
