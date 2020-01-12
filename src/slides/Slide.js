@@ -5,6 +5,7 @@ import Filter from '../slides/Filter/Filter';
 import Info from '../slides/Info/Info';
 import Form from '../slides/Form/Form';
 import End from '../slides/End/End';
+import ProgressBar from '../components/ProgressBar/ProgressBar';
 
 const Slide = () => {
     const { slideModel } = useContext(SlideContext);
@@ -25,6 +26,7 @@ const Slide = () => {
 
     return (
         <div className="pz">
+            <ProgressBar/>
             {getSlideView()}
         </div>
     )

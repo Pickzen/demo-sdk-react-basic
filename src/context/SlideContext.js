@@ -8,6 +8,7 @@ const SlideContextProvider = ({children}) => {
 
     const [slideModel, setSlideModel] = useState(null);
     const [nav, setNav] = useState({canBack:false, canNext:false});
+    const [progress, setProgress] = useState(0);
 
     useEffect(() => {
         // Mounted
@@ -35,6 +36,8 @@ const SlideContextProvider = ({children}) => {
         const canRestart = slideModel.getType()==='End';
 
         setNav( {canBack:slideModel.canBack(), canNext:slideModel.canNext(), canRestart});
+
+        setProgress(Engine.getProgress(true, true));
     };
 
     const next = () => {
@@ -53,7 +56,11 @@ const SlideContextProvider = ({children}) => {
     };
 
     return (
-        <SlideContext.Provider value={{ Engine:EngineRef.current, slideModel, displayCurrentSlide, nav:{canBack:nav.canBack, canNext:nav.canNext, canRestart:nav.canRestart, back, next, restart} }}>
+        <SlideContext.Provider value={{
+            Engine:EngineRef.current,
+            slideModel, displayCurrentSlide,
+            progress,
+            nav:{canBack:nav.canBack, canNext:nav.canNext, canRestart:nav.canRestart, back, next, restart} }}>
             {slideModel?children:null}
         </SlideContext.Provider>
     )
