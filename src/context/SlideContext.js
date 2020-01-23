@@ -15,7 +15,6 @@ const SlideContextProvider = ({children}) => {
         window.pickzen.waitForEngine((Engine)=>{
             if (Engine) {
                 EngineRef.current = Engine;
-
                 Engine.load(cfg.code, cfg.server, {memo:false}).then(() => {
                     displayCurrentSlide();
                 }).catch((error) => {

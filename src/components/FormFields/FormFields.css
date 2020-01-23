@@ -19,3 +19,10 @@
     font-size: 14px;
     height: 32px;
 }
+.form-fields .checkbox {
+    text-align: left;
+}
+
+.form-fields .checkbox .title {
+    display: inline-block;
+}
