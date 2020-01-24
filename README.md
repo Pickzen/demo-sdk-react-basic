@@ -2,6 +2,7 @@ Demo project that shows how we can use the Pickzen SDK to create a React applica
 
 <p align="center">
   <img src="https://cdn.pickzen.com/sdk/statics/sdk-basic.gif">
+  <a href="https://cdn.pickzen.com/sdk/statics/sdk-basic-build/index_1.html">Try it!</a> 
 </p>
 
 ## Usage
