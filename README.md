@@ -1,5 +1,6 @@
 Demo project that shows how we can use the Pickzen SDK to create a React application that recommends products.
 
+![](https://cdn.pickzen.com/sdk/statics/sdk-basic.gif)
 
 ## Usage
 
