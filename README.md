@@ -27,4 +27,7 @@ const cfg = {
 };
 ```
 
+## Documentation
+
+[Pickzen SDK](https://help.pickzen.com/guides/sdk)
 
