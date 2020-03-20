@@ -19,11 +19,11 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 ## Configuration
 
-By default it will load a demo Assistant. To use your own Assistant, set its code in the `App.js` file:
+By default it will load a demo Assistant. To use your own Assistant, set its code in the `index.js` file:
 
 ```
-const cfg = {
-    code:'HPTkH7GAWjx'
+window.pickzen={
+    code:'HPTkH7GAWjx',
 };
 ```
 

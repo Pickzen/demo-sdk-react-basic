@@ -1,5 +1,6 @@
 import React, { useState, createContext, useEffect, useRef } from 'react'
 import {cfg} from '../containers/App'
+import Utils from '../utils/Utils'
 
 export const SlideContext = createContext(null);
 
@@ -12,7 +13,7 @@ const SlideContextProvider = ({children}) => {
 
     useEffect(() => {
         // Mounted
-        window.pickzen.waitForEngine((Engine)=>{
+        Utils.waitForEngine((Engine)=>{
             if (Engine) {
                 EngineRef.current = Engine;
                 Engine.load(cfg.code, cfg.server, {memo:false}).then(() => {
@@ -33,8 +34,12 @@ const SlideContextProvider = ({children}) => {
         setSlideModel(slideModel);
 
         const canRestart = slideModel.getType()==='End';
+        const canBack = slideModel.canBack();
+        const canNext = slideModel.canNext();
+        const backLabel = slideModel.getBackLabel() || 'Back';
+        const nextLabel = slideModel.getNextLabel() || 'Next';
 
-        setNav( {canBack:slideModel.canBack(), canNext:slideModel.canNext(), canRestart});
+        setNav( {canBack, canNext, backLabel, nextLabel, canRestart});
 
         setProgress(Engine.getProgress(true, true));
     };
@@ -59,7 +64,8 @@ const SlideContextProvider = ({children}) => {
             Engine:EngineRef.current,
             slideModel, displayCurrentSlide,
             progress,
-            nav:{canBack:nav.canBack, canNext:nav.canNext, canRestart:nav.canRestart, back, next, restart} }}>
+            nav:{canBack:nav.canBack, canNext:nav.canNext, canRestart:nav.canRestart, backLabel:nav.backLabel, nextLabel:nav.nextLabel, back, next, restart}
+        }}>
             {slideModel?children:null}
         </SlideContext.Provider>
     )

@@ -3,9 +3,10 @@ import './App.css';
 import SlideContextProvider from '../context/SlideContext'
 import Slide from '../slides/Slide'
 
-const cfg = {
-    code:'HPTkH7GAWjx'
-};
+const cfg = window.pickzen||{};
+
+if (!cfg.server) cfg.server='https://app.pickzen.com';
+if (!cfg.preview) cfg.preview=0;
 
 const App = () => (
   <SlideContextProvider>
@@ -14,5 +15,4 @@ const App = () => (
 );
 
 export {cfg}
-
 export default App;
