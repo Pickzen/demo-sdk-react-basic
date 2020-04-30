@@ -10,3 +10,9 @@
 ### Changed
 
 - SDK 0.5.0
+
+## 2020-04-30
+
+### Changed
+
+- SDK v1
