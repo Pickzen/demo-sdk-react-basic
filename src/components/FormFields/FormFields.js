@@ -10,8 +10,14 @@ function FormFields({fields, showErrors}) {
     const [fieldValues, setFieldValues] = useState(getFieldValues());
 
     const onChangeHandler = (event, field) => {
-        if (field.getType()==='checkbox') {
+        let type = field.getType();
+
+        if (type==='checkbox') {
             field.setValue(event.target.checked);
+        } else if (type==='radio-group') {
+            event.target.checked?field.setValue(event.target.value):field.removeValue(event.target.value);
+        } else if (type==='select') {
+            field.setValue(event.target.value);
         } else {
             field.setValue(event.target.value);
         }
@@ -30,10 +36,50 @@ function FormFields({fields, showErrors}) {
         if (type==='checkbox') {
             el = (
                 <label>
-                    <CustomHTML className="title" html={field.getTitle()} />
-                    <input type="checkbox" checked={fieldValues[i]} onChange={ (event) => onChangeHandler(event, field) }  />
+                    <CustomHTML className="title" html={field.getTitle()}/>
+                    <input type="checkbox" checked={fieldValues[i]}
+                           onChange={(event) => onChangeHandler(event, field)}/>
                 </label>
             );
+        } else if (type==='radio-group') {
+            el = (
+                <>
+                    <label>
+                        <CustomHTML className="title" html={field.getTitle()}/>
+                    </label>
+
+                    {
+                        field.getOptions().map(o => {
+                            return (
+                                <span key={o.getId()}>
+                                    <input type={field.isMultiple() ? 'checkbox' : 'radio'}
+                                           value={o.getId()} name={field.getId()}
+                                           onChange={(event) => onChangeHandler(event, field)} />
+                                    <label htmlFor={o.getId()}>{o.getTitle()}</label>
+                                </span>
+                            )
+                        })
+                    }
+
+                </>
+
+            );
+        } else if (type==='select') {
+            el = (
+                <>
+                    <label>
+                        <CustomHTML className="title" html={field.getTitle()}/>
+                    </label>
+
+                    <select defaultValue="0" onChange={(event) => onChangeHandler(event, field)}>
+                        <option disabled value="0">Select...</option>
+                        {field.getOptions().map(o => <option value={o.getId()} key={o.getId()}>{o.getTitle()}</option>)}
+                    </select>
+
+                </>
+
+            );
+
         } else {
             el = (
                 <>
