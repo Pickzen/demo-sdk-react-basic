@@ -7,7 +7,7 @@ import './Filter.css'
 
 function Filter() {
     const {slideModel} = useContext(SlideContext);
-    
+
     return (
         <div className="slide filter">
             <Header />
