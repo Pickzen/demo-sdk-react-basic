@@ -25,7 +25,7 @@ function ListOptions({options}) {
 
     return (
         <ul className="list-options">
-            { options.map((o, i) => (
+            { options.filter(o=>!o.isHidden()).map((o, i) => (
                 <li onClick={() => select(o)}
                     className={selectedOptions[i] ? 'selected' : ''}
                     key={o.getId()}>
