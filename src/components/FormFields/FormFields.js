@@ -14,9 +14,9 @@ function FormFields({fields, showErrors}) {
 
         if (type==='checkbox') {
             field.setValue(event.target.checked);
-        } else if (type==='radio-group') {
+        } else if (type==='selector') {
             event.target.checked?field.setValue(event.target.value):field.removeValue(event.target.value);
-        } else if (type==='select') {
+        } else if (type==='dropdown') {
             field.setValue(event.target.value);
         } else {
             field.setValue(event.target.value);
@@ -41,7 +41,7 @@ function FormFields({fields, showErrors}) {
                            onChange={(event) => onChangeHandler(event, field)}/>
                 </label>
             );
-        } else if (type==='radio-group') {
+        } else if (type==='selector') {
             el = (
                 <>
                     <label>
@@ -64,7 +64,7 @@ function FormFields({fields, showErrors}) {
                 </>
 
             );
-        } else if (type==='select') {
+        } else if (type==='dropdown') {
             el = (
                 <>
                     <label>
