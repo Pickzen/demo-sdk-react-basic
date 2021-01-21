@@ -42,28 +42,49 @@ function FormFields({fields, showErrors}) {
                 </label>
             );
         } else if (type==='selector') {
-            el = (
-                <>
-                    <label>
-                        <CustomHTML className="title" html={field.getTitle()}/>
-                    </label>
+            if (true){
+                console.log(field.getOptions())
+                el = (
+                    <>
+                        <label>
+                            <CustomHTML className='title' html={field.getTitle()}/>
+                        </label>
+                        <input type='range' min='0' max={field.getOptions().length-1} step='1' className='slider'/>
 
-                    {
-                        field.getOptions().map(o => {
-                            return (
-                                <span key={o.getId()}>
-                                    <input type={field.isMultiple() ? 'checkbox' : 'radio'}
-                                           value={o.getId()} name={field.getId()}
-                                           onChange={(event) => onChangeHandler(event, field)} />
-                                    <label htmlFor={o.getId()}>{o.getTitle()}</label>
-                                </span>
-                            )
-                        })
-                    }
+                        <div className='options'>
+                            {field.getOptions().map((o,i)=>{
+                                return <p>{o.getTitle()}</p>
+                            })}
+                        </div>
+                    </>
+                )
+            }else{
+                el = (
+                    <>
+                        <label>
+                            <CustomHTML className="title" html={field.getTitle()}/>
+                        </label>
+    
+                        {
+                            field.getOptions().map(o => {
+                                return (
+                                    <span key={o.getId()}>
+                                        <input type={field.isMultiple() ? 'checkbox' : 'radio'}
+                                               value={o.getId()} name={field.getId()}
+                                               onChange={(event) => onChangeHandler(event, field)} />
+                                        <label htmlFor={o.getId()}>{o.getTitle()}</label>
+                                    </span>
+                                )
+                            })
+                        }
+    
+                    </>
+    
+                );
+            }
 
-                </>
 
-            );
+
         } else if (type==='dropdown') {
             el = (
                 <>
