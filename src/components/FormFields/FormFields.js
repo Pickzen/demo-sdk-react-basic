@@ -64,8 +64,13 @@ function FormFields({fields, showErrors}) {
                             </div>
           
                             <div className='steps'>
-                                {field.getOptions().map((o,i)=>{
+                                {field.getOptions().map((o)=>{
                                     return <input type='radio' value={o.getId()} onClick={(event) => {event.preventDefault();onChangeHandler(event, field)}} key={o.getId()}/>
+                                })}
+                            </div> 
+                            <div className='legend'>
+                                {field.getOptions().map((o,i)=>{
+                                    return <p className={`${field.getValue()===o.getId()?'selected':''}`} key={o.getId()}>{o.getTitle()}</p>
                                 })}
                             </div> 
                         </div>
