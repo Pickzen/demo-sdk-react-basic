@@ -54,7 +54,7 @@ function FormFields({fields, showErrors}) {
                     ?0
                     :Math.floor(field.getOptions().findIndex((e)=>e.id === field.getValue())/(field.getOptions().length - 1) * 100)
                 }
-                
+
                 el = (
                     <>
                         <div className='slider'>
@@ -65,7 +65,7 @@ function FormFields({fields, showErrors}) {
           
                             <div className='steps'>
                                 {field.getOptions().map((o,i)=>{
-                                    return <input type='radio' value={o.getId()} onClick={(event) => {event.preventDefault();onChangeHandler(event, field)}}/>
+                                    return <input type='radio' value={o.getId()} onClick={(event) => {event.preventDefault();onChangeHandler(event, field)}} key={o.getId()}/>
                                 })}
                             </div> 
                         </div>
