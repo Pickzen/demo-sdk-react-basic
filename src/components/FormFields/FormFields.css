@@ -30,7 +30,7 @@
 .form-fields .selector .slider{
     position: relative;
     width: 100%;
-    height: 25px;
+    height: 20px;
     border-radius: 20px;
     background: rgb(231, 231, 231);
     box-shadow: 0 4px 10px 0 rgb(0, 0, 0 / 25%);
@@ -38,7 +38,7 @@
 
 .form-fields .selector .slider .steps{
     position: absolute;
-    height: 25px;
+    height: 20px;
     width: 100%;
     top: 0;
     left: 0;
@@ -48,8 +48,8 @@
 
 .form-fields .selector .slider .steps input[type=radio]{
     appearance: none;
-    width: 20px;
-    height: 20px;
+    width: 15px;
+    height: 15px;
     border-radius: 50%;
     cursor: pointer;
     background-color:rgb(251, 132, 67);
@@ -73,17 +73,40 @@
     transition:  width 0.2s ease-in-out;
     pointer-events: none;
     max-width: 100%;
-    min-width: 4%;
+    min-width: 8%;
+    height: 100%;
 }
 
 .form-fields .selector .slider .thumb-progress .thumb{
     background-color: #dd4f00;
     box-shadow: 0 4px 12px 0 #7229016e;
     height: 25px;
-    width: 25px;
+    min-width: 25px;
     border-radius: 50%;
-    transform: scale(1.6);
+    transform: scale(1.6) translate(2px);
     pointer-events: none;
     z-index: 5;
 }
 
+@media (min-width:420px){
+    .form-fields .selector .slider .progress,
+    .form-fields .selector .slider .thumb-progress{
+        min-width: 5%;
+    }
+}
+@media (min-width:600px){
+    .form-fields .selector .slider .progress,
+    .form-fields .selector .slider .thumb-progress{
+        min-width: 4%;
+    }
+    .form-fields .selector .slider .thumb-progress .thumb{
+        transform: scale(1.6) translate(0px);
+    }
+    .form-fields .selector .slider .steps input[type=radio]{
+        width: 20px;
+        height: 20px;
+    }
+    .form-fields .selector .slider{
+        height: 25px;
+    }
+}
