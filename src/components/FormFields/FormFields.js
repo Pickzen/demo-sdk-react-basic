@@ -60,7 +60,7 @@ function FormFields({fields, showErrors}) {
                         <label>
                             <CustomHTML className="title" html={field.getTitle()}/>
                         </label>
-                        
+
                         <div className='slider'>
                             <div className='progress' style={{width:getProgessPercentage() + '%'}}/>
                             <div className='thumb-progress' style={{width:getProgessPercentage() + 2 + '%'}}>
@@ -74,7 +74,8 @@ function FormFields({fields, showErrors}) {
                             </div> 
                             <div className='legend'>
                                 {field.getOptions().map((o,i)=>{
-                                    return <p className={`${field.getValue()===o.getId()?'selected':''}`} key={o.getId()}>{o.getTitle()}</p>
+                                    return <p style={{width:field.getOptions().length - 1 + '%'}}
+                                    className={`${field.getValue()===o.getId()?'selected':''}`} key={o.getId()}>{o.getTitle()}</p>
                                 })}
                             </div> 
                         </div>
