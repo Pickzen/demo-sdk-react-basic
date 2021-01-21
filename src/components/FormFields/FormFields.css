@@ -27,6 +27,12 @@
     display: inline-block;
 }
 
+
+
+
+.form-fields .selector label .title{
+    margin-bottom: 15px;
+}
 .form-fields .selector .slider{
     position: relative;
     width: 100%;
@@ -34,6 +40,7 @@
     border-radius: 20px;
     background: rgb(231, 231, 231);
     box-shadow: 0 4px 10px 0 rgb(0, 0, 0 / 25%);
+    margin-bottom: 60px;
 }
 
 .form-fields .selector .slider .steps{
@@ -88,6 +95,22 @@
     z-index: 5;
 }
 
+.form-fields .selector .slider .legend{
+    display: block;
+    position: absolute;
+    width: 100%;
+    margin-top: 35px;
+    z-index: 1;
+    display: flex;
+    justify-content: center;
+}
+.form-fields .selector .slider .legend p{
+    display: none;
+}
+.form-fields .selector .slider .legend p.selected{
+    display: block;
+}
+
 @media (min-width:420px){
     .form-fields .selector .slider .progress,
     .form-fields .selector .slider .thumb-progress{
@@ -100,7 +123,7 @@
         min-width: 4%;
     }
     .form-fields .selector .slider .thumb-progress .thumb{
-        transform: scale(1.6) translate(0px);
+        transform: scale(1.6) translate(2px);
     }
     .form-fields .selector .slider .steps input[type=radio]{
         width: 20px;
@@ -108,5 +131,11 @@
     }
     .form-fields .selector .slider{
         height: 25px;
+    }
+    .form-fields .selector .slider .legend{
+        justify-content: space-between;
+    }
+    .form-fields .selector .slider .legend p{
+        display: block;
     }
 }
