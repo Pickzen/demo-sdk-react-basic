@@ -56,7 +56,11 @@ function FormFields({fields, showErrors}) {
                 }
 
                 el = (
-                    <>
+                    <>  
+                        <label>
+                            <CustomHTML className="title" html={field.getTitle()}/>
+                        </label>
+                        
                         <div className='slider'>
                             <div className='progress' style={{width:getProgessPercentage() + '%'}}/>
                             <div className='thumb-progress' style={{width:getProgessPercentage() + 2 + '%'}}>
