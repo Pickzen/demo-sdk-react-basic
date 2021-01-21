@@ -49,8 +49,11 @@ function FormFields({fields, showErrors}) {
                         <label>
                             <CustomHTML className='title' html={field.getTitle()}/>
                         </label>
-                        <input type='range' min='0' max={field.getOptions().length-1} step='1' className='slider'/>
-
+                        <div className='slider'>
+                            <div className='steps'>{field.getOptions().map(()=><span/>)}</div>  
+                            <input type='range' min='0' max={field.getOptions().length-1} step='1'/>
+                        </div>
+                        {/* TODO can merge this maps */}
                         <div className='options'>
                             {field.getOptions().map((o,i)=>{
                                 return <p>{o.getTitle()}</p>
