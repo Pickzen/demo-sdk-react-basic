@@ -17,7 +17,7 @@ function FormFields({fields, showErrors}) {
         } else if (type==='selector') {
 
             if(true){
-                field.setValue(field.getOptions()[event.target.value].id)
+                field.setValue(event.target.value)
             }else{
                 event.target.checked?field.setValue(event.target.value):field.removeValue(event.target.value);
             }
@@ -28,6 +28,7 @@ function FormFields({fields, showErrors}) {
             field.setValue(event.target.value);
         }
         setFieldValues(getFieldValues());
+        console.log(getFieldValues())
     };
 
     const getFieldErrorClass = (field) => {
@@ -48,21 +49,25 @@ function FormFields({fields, showErrors}) {
             );
         } else if (type==='selector') {
             if (true){
-                console.log(field.getOptions())
+                const getProgessPercentage = () =>{
+                    return !field.getValue()
+                    ?0
+                    :Math.floor(field.getOptions().findIndex((e)=>e.id === field.getValue())/(field.getOptions().length - 1) * 100)
+                }
+                
                 el = (
                     <>
-                        <label>
-                            <CustomHTML className='title' html={field.getTitle()}/>
-                        </label>
                         <div className='slider'>
-                            <div className='steps'>{field.getOptions().map(()=><span/>)}</div>  
-                            <input type='range' min='0' max={field.getOptions().length-1} step='1' onChange={(event)=>onChangeHandler(event,field)}/>
-                        </div>
-                        {/* TODO can merge this maps */}
-                        <div className='options'>
-                            {field.getOptions().map((o,i)=>{
-                                return <p>{o.getTitle()}</p>
-                            })}
+                            <div className='progress' style={{width:getProgessPercentage() + '%'}}/>
+                            <div className='thumb-progress' style={{width:getProgessPercentage() + 2 + '%'}}>
+                                <div className='thumb'/>
+                            </div>
+          
+                            <div className='steps'>
+                                {field.getOptions().map((o,i)=>{
+                                    return <input type='radio' value={o.getId()} onClick={(event) => {event.preventDefault();onChangeHandler(event, field)}}/>
+                                })}
+                            </div> 
                         </div>
                     </>
                 )
