@@ -15,13 +15,18 @@ function FormFields({fields, showErrors}) {
         if (type==='checkbox') {
             field.setValue(event.target.checked);
         } else if (type==='selector') {
-            event.target.checked?field.setValue(event.target.value):field.removeValue(event.target.value);
+
+            if(true){
+                field.setValue(field.getOptions()[event.target.value].id)
+            }else{
+                event.target.checked?field.setValue(event.target.value):field.removeValue(event.target.value);
+            }
+
         } else if (type==='dropdown') {
             field.setValue(event.target.value);
         } else {
             field.setValue(event.target.value);
         }
-
         setFieldValues(getFieldValues());
     };
 
@@ -51,7 +56,7 @@ function FormFields({fields, showErrors}) {
                         </label>
                         <div className='slider'>
                             <div className='steps'>{field.getOptions().map(()=><span/>)}</div>  
-                            <input type='range' min='0' max={field.getOptions().length-1} step='1'/>
+                            <input type='range' min='0' max={field.getOptions().length-1} step='1' onChange={(event)=>onChangeHandler(event,field)}/>
                         </div>
                         {/* TODO can merge this maps */}
                         <div className='options'>
