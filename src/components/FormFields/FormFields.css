@@ -29,58 +29,61 @@
 
 .form-fields .selector .slider{
     position: relative;
+    width: 100%;
     height: 25px;
-}
-
-.form-fields .selector .slider input[type=range]{
-    -webkit-appearance: none;
-    appearance: none;
-    width: 100%;
-    height: 100%;
     border-radius: 20px;
-    background: white;
-    outline: none;
-    opacity: 0.8;
-    overflow: hidden;
+    background: rgb(231, 231, 231);
+    box-shadow: 0 4px 10px 0 rgb(0, 0, 0 / 25%);
 }
 
-.form-fields .selector .slider input[type=range]::-webkit-slider-thumb{
-   appearance: none; 
-   width: 20px;
-   height: 20px;
-   box-shadow: -500px 0 0 490px red;
-   /* Find a better solution for this */
-}
-
-.form-fields .selector .steps{
+.form-fields .selector .slider .steps{
     position: absolute;
-    height: 24px;
+    height: 25px;
     width: 100%;
-    top: 1px;
+    top: 0;
     left: 0;
     display: flex;
     justify-content: space-between;
 }
-.form-fields .selector .steps span{
-    width: 25px;
-    height: 25px;
+
+.form-fields .selector .slider .steps input[type=radio]{
+    appearance: none;
+    width: 20px;
+    height: 20px;
     border-radius: 50%;
-    background: rgb(44, 2, 2);
-    z-index: 55;
     cursor: pointer;
+    background-color:rgb(251, 132, 67);
+}
+
+.form-fields .selector .slider .progress{
+    background-color: #dd4f00;
+    height: 25px;
+    border-radius: 25px;
+}
+.form-fields .selector .slider .thumb-progress{
+    display: flex;
+    justify-content: flex-end;
+}
+
+.form-fields .selector .slider .progress,
+.form-fields .selector .slider .thumb-progress{
+    position: absolute;
+    top: 0;
+    left: 0;
+    transition:  width 0.2s ease-in-out;
     pointer-events: none;
+    max-width: 100%;
+    min-width: 4%;
 }
 
-.form-fields .selector .options{
-    display: flex;
-    justify-content: space-between;
+.form-fields .selector .slider .thumb-progress .thumb{
+    background-color: #dd4f00;
+    box-shadow: 0 4px 12px 0 #7229016e;
+    height: 25px;
+    width: 25px;
+    border-radius: 50%;
+    transform: scale(1.6);
+    pointer-events: none;
+    z-index: 5;
 }
 
-.form-fields .selector .options p{
-    position: relative;
-    display: flex;
-    justify-content: center;
-    width: 1px;
-    margin-bottom: 30px;
-    margin-top: 6px;
-}
