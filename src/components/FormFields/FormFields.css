@@ -27,9 +27,6 @@
     display: inline-block;
 }
 
-
-
-
 .form-fields .selector label .title{
     margin-bottom: 15px;
 }
@@ -123,7 +120,7 @@
         min-width: 4%;
     }
     .form-fields .selector .slider .thumb-progress .thumb{
-        transform: scale(1.6) translate(2px);
+        transform: scale(1.6) translate(3px);
     }
     .form-fields .selector .slider .steps input[type=radio]{
         width: 20px;
@@ -137,5 +134,11 @@
     }
     .form-fields .selector .slider .legend p{
         display: block;
+    }
+}
+
+@media (min-width:800px){
+    .form-fields .selector .slider .thumb-progress .thumb{
+        transform: scale(1.6) translate(0);
     }
 }
