@@ -21,6 +21,7 @@
 .slide.pz-customEnd .results .pz-products .productsView .result{
     min-width: calc(100% - 20px);
     margin: 10px;
+    border: none;
 }
 
 @media (min-width:700px){
