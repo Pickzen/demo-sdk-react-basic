@@ -41,8 +41,8 @@ function ProductsCarrousel({results,className='',title}) {
 
     return (
         <div className={`pz-products ` + className}> 
-            <h1 className='title'>{title}</h1>
-            <div className='productsView' ref={target}>
+            <h1 className='pz-title'>{title}</h1>
+            <div className='pz-productsView' ref={target}>
                 {results.map((result,i) =>  <Result key={result.getId()} value={result}/>)}
             </div>
 

@@ -26,11 +26,10 @@ function EndCustom() {
             {results?(
                 <>
                     <Header />
-                    <div className="results">
+                    <div className="pz-results">
                     {/* Add logic to determinate which products go where */}
                         <ProductsCarrousel title={"Cleanser"} results={results} className='pz-topView'/>
                         <ProductsCarrousel title={"Toner"} results={results} className='pz-bottomView'/>
-                        
                     </div>    
                     <Navigation />
                 </>
