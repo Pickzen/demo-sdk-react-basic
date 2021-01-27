@@ -1,10 +1,9 @@
 import React, { useState, useContext, useEffect } from 'react';
 import { SlideContext } from '../../context/SlideContext';
-import Result from '../../components/Result/Result'
-import './EndCustom.css'
+import Result from '../../components/Result/Result';
+import './EndCustom.css';
 
-
-function ProductsCarrousel({results,className=''}) {
+function ProductsCarrousel({results,className='',title}) {
     const { slideModel } = useContext(SlideContext);
 
     const target = React.createRef();
@@ -42,13 +41,14 @@ function ProductsCarrousel({results,className=''}) {
 
     return (
         <div className={`pz-products ` + className}> 
+            <h1 className='title'>{title}</h1>
             <div className='productsView' ref={target}>
                 {results.map((result,i) =>  <Result key={result.getId()} value={result}/>)}
             </div>
 
-            <div className='controls'>
+            <div className='pz-scrollProgress'>
                 {[...Array(Math.ceil(scrollSize)).keys()].map(i=>
-                <div className={`step ${((scrollProgress * scrollSize) / 100 >= i && (scrollProgress * scrollSize) / 100 <= i + 1)?'active':''}`} />)}
+                <div className={`pz-step ${((scrollProgress * scrollSize) / 100 >= i && (scrollProgress * scrollSize) / 100 <= i + 1)?'active':''}`} />)}
             </div>
         </div>
     );
