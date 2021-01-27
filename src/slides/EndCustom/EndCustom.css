@@ -5,6 +5,9 @@
     width: 100%;
     margin-top: 12px;
 }
+.slide.pz-customEnd .title{
+    font-weight: 300;
+}
 .slide.pz-customEnd .results .pz-products .productsView{
     width: 75%;
     display: flex;
@@ -26,19 +29,21 @@
     } 
 }
 
-.slide.pz-customEnd .results .pz-products .controls{
+.slide.pz-customEnd .results .pz-products .pz-scrollProgress{
     width: 80%;
     display: flex;
     justify-content: center;
+    margin-bottom: 12px;
 }
-.slide.pz-customEnd .results .pz-products .controls .step{
+
+.slide.pz-customEnd .results .pz-products .pz-scrollProgress .pz-step{
     width: 16px;
     height: 16px;
     margin: 0 5px;
     border-radius: 50%;
     background: rgb(255, 0, 0);
 }
-.slide.pz-customEnd .results .pz-products .controls .step.active{
+.slide.pz-customEnd .results .pz-products .pz-scrollProgress .pz-step.active{
     background: rgb(92, 83, 83)!important;
 }
 
@@ -51,13 +56,20 @@
  
     .slide.pz-customEnd .header{
         width: 20%;
+        display: flex;
+        align-items: center;
+        padding: 1rem 0rem;
+        border-right: 2px solid gray;
     }
     .slide.pz-customEnd .results{
         width: 80%;
-        padding: 1rem 0rem
+        padding: 1rem 0rem;
     }
     .slide.pz-customEnd .results .pz-products .productsView{
         width: 95%;
+    }
+    .slide.pz-customEnd .results .pz-products:first-child{
+        border-bottom: 2px solid gray;
     }
     .slide.pz-customEnd .navigation{
         width: 100%;
