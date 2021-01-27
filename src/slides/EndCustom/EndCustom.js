@@ -22,7 +22,7 @@ function EndCustom() {
     })
     
     return (
-        <div className="slide end">
+        <div className="slide pz-customEnd">
             {results?(
                 <>
                     <Header />
