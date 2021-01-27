@@ -1,0 +1,44 @@
+
+.slide.end .results .pz-products{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    margin-top: 12px;
+}
+.slide.end .results .pz-products .productsView{
+    width: 75%;
+    display: flex;
+    flex-direction: row;
+    overflow-x: auto;
+}
+.slide.end .results .pz-products .productsView::-webkit-scrollbar {
+    display: none;
+}
+
+.slide.end .results .pz-products .productsView .result{
+    min-width: calc(100% - 20px);
+    margin: 10px;
+}
+
+@media (min-width:700px){
+    .slide.end .results .pz-products .productsView .result{
+        min-width: calc(33.3% - 20px);
+    } 
+}
+
+.slide.end .results .pz-products .controls{
+    width: 80%;
+    display: flex;
+    justify-content: center;
+}
+.slide.end .results .pz-products .controls .step{
+    width: 16px;
+    height: 16px;
+    margin: 0 5px;
+    border-radius: 50%;
+    background: rgb(255, 0, 0);
+}
+.slide.end .results .pz-products .controls .step.active{
+    background: rgb(92, 83, 83)!important;
+}
