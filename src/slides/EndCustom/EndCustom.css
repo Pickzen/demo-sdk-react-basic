@@ -43,6 +43,7 @@
     margin: 0 5px;
     border-radius: 50%;
     background: rgb(255, 0, 0);
+    cursor: pointer;
 }
 .slide.pz-customEnd .pz-results .pz-products .pz-scrollProgress .pz-step.active{
     background: rgb(92, 83, 83)!important;
@@ -69,6 +70,7 @@
         width: 70%;
         padding: 1rem 0rem;
         overflow-y: auto;
+        max-height: 90vh;
     }
     .slide.pz-customEnd .pz-results .pz-products .pz-productsView{
         width: 95%;
