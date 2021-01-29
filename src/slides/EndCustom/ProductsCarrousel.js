@@ -17,13 +17,15 @@ function ProductsCarrousel({results,className='',title}) {
         
         setScrollSize(isPhone?results.length:Math.ceil(results.length/3))
 
-        target.current.addEventListener('touchmove', scrollListener);
-        return () => target.current && target.current.removeEventListener('touchmove', scrollListener);
+        target.current.addEventListener('scroll', scrollListener);
+        return () => target.current && target.current.removeEventListener('scroll', scrollListener);
     })
 
     const scrollListener = () => {
         if(!target.current)
             return;
+
+        console.log('SCROLL')
         
         const element = target.current;
         const windowScroll = element.scrollLeft;
@@ -41,12 +43,16 @@ function ProductsCarrousel({results,className='',title}) {
     const scrollToPage = (i) => {
         const element = target.current;
 
-        const firstChild = element.children[0]; 
-        // Calculates the final width of each 'page'
-        const pageWidth = ((firstChild.offsetWidth + parseInt(getComputedStyle(firstChild).margin) * 2) * (results.length/scrollSize));
-        element.scrollLeft = pageWidth * (i)
-        
-        setScrollProgress( (element.scrollLeft/element.scrollWidth - element.clientWidth) * 100);
+        const firstChild = element.children[1]; 
+        // Calculates the final width of each 'page' including margin of every element
+        const pageWidth = (firstChild.offsetWidth + parseInt(getComputedStyle(firstChild).margin) * 2) * Math.ceil(results.length/scrollSize);
+
+        element.scrollTo({
+            top:100,
+            left:pageWidth * i,
+            behavior:'smooth'
+        })
+
     }
 
     return (
