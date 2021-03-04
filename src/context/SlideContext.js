@@ -16,7 +16,7 @@ const SlideContextProvider = ({children}) => {
         Utils.waitForEngine((Engine)=>{
             if (Engine) {
                 EngineRef.current = Engine;
-                Engine.load(cfg.code, cfg.server, {memo:false}).then(() => {
+                Engine.load(cfg.code, cfg.server, {}).then(() => {
                     displayCurrentSlide();
                 }).catch((error) => {
                     console.error(error);
